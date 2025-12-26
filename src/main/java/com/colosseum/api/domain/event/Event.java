@@ -1,10 +1,10 @@
 package com.colosseum.api.domain.event;
 
 import java.util.Date;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -21,13 +21,13 @@ import lombok.Setter;
 public class Event {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String title;
     private String description;
     private String imgUrl;
     private String eventUrl;
-    private boolean remote;
+    private Boolean isRemote;
     private Date date;
 }
